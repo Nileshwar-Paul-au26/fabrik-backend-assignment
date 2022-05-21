@@ -24,3 +24,19 @@ app.listen(PORT, console.log(`Server listening on Port ${process.env.PORT}`));
 app.get("/", (req, res) => {
     res.render("index");
 });
+app.post("/submit", uploader.single("image"), (req, res) => {
+    console.log(req.file)
+    //converting the file data to base64 string format require by the cloudinary
+    let stringdata = base64.encode(req.file.buffer);
+    cloudinary.v2.uploader.upload(
+        `data:${req.file.mimetype};base64,${stringdata}`,
+        function (err, result) {
+            if (err) {
+                console.log(err)
+                res.send('error: ' + err.message)
+            }
+            imgurl = result.secure_url
+            res.send("Uploded")
+        }
+    );
+});
