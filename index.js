@@ -40,3 +40,9 @@ app.post("/submit", uploader.single("image"), (req, res) => {
         }
     );
 });
+app.get('/display',(req,res) => {
+    res.render("gallery",{imgurl:imgurl});
+})
+app.get('*', (req, res) => {
+    res.send("Not Found");
+})
