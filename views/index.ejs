@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Upload 3D Model</title>
+</head>
+<body>
+    <main class="container tex-center w-50 p-4">
+        <form action="/submit" method="post" enctype="multipart/form-data">
+            <label class="control-label m-3">Uplaod Image</label>
+            <input class="form-control m-3 p-1" name="image" type="file" accept=".glb,.gltf,.fbx">
+            <button class="btn btn-primary m-3" type="submit">Submit</button>
+        </form>
+    </main>
+</body>
+</html>

@@ -20,3 +20,7 @@ cloudinary.config({
 //Storing Files uploaded by User Inmemory(not in disk because we want the buffer format data of the file) through multer
 const uploader = multer({ storage: multer.memoryStorage() });
 app.listen(PORT, console.log(`Server listening on Port ${process.env.PORT}`));
+
+app.get("/", (req, res) => {
+    res.render("index");
+});
